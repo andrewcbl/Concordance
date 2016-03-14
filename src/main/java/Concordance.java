@@ -41,7 +41,7 @@ public class Concordance {
         Integer maxCorpusLen = corpus.getMaxCorpusLen();
 
         ArrayList<String> result = new ArrayList<String>();
-        List<String> sortedKeys = new ArrayList(corpusOccurs.keySet());
+        List<String> sortedKeys = new ArrayList<String>(corpusOccurs.keySet());
         Collections.sort(sortedKeys);
 
         for (String key: sortedKeys) {
