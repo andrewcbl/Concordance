@@ -6,12 +6,12 @@ This program is used to create concordance in for a paragraph of sentences. A "c
 ## Environment
 The program is tested in both Windows and Linux. On Windows, it is tested with Intellij. And on Linux, it runs with Maven 3.3.3. 
 
-## Usage
-Step1: compile the code
+## Usage (Linux)
+Step1: compile the code: <br/>
 mvn compile
 
-Step2: Package the code:
+Step2: Package the code:<br/>
 mvn package
 
-Step3: Run the program, put your input text in a file, e.g. test.txt, run the following command
+Step3: Run the program, put your input text in a file, e.g. test.txt, run the following command:<br/>
 java -jar target/concordance-1.0-SNAPSHOT.jar < test.txt
