@@ -7,6 +7,8 @@ This program is used to create concordance in for a paragraph of sentences. A "c
 The program is tested in both Windows and Linux. On Windows, it is tested with Intellij (version 14.1.3) and Java (version 1.7.0_55). And on Linux, it runs with Maven 3.3.3 and Java (version 1.7.0_80). 
 
 ## Usage (Linux)
+Go to the directory where the repository is pulled.
+
 Step1: compile the code: <br/>
 mvn compile
 
