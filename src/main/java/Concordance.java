@@ -22,19 +22,20 @@ public class Concordance {
             for (String word: words) {
                 corpus.add(word, sid);
             }
-            sid += 1;
+
+            // Only increase the sentence id when it is a valid sentence, i.e. contains some words
+            if (words.size() > 0)
+                sid += 1;
         }
     }
 
     public Set<String> getCorpus() {
-        // TODO: This is not good way to check if reader is done
         if (sentences.hasNext())
             this.calcConcordance();
         return corpus.getCorpus();
     }
 
     public ArrayList<String> getConcordance() {
-        // TODO: This is not good way to check if reader is done
         if (sentences.hasNext())
             this.calcConcordance();
         HashMap<String, ArrayList<Integer>> corpusOccurs = corpus.getConcordance();
