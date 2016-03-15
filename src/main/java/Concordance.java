@@ -3,17 +3,35 @@ import java.text.BreakIterator;
 import java.util.*;
 
 /**
+ * This class is the main program for the Concordance application
+ * It works with the following breakdown steps:
+ * - Read in a paragraph from STDIN
+ * - Break the paragraph into sentences
+ * - Tokenize each of the sentence
+ * - Add the words to the Corpus tracker
+ * - Print/format the concordance
  * Created by bilongc on 3/12/2016.
  */
 public class Concordance {
     private Corpus corpus;
     private Sentences sentences;
 
+    /**
+     * Constructor, constructed with the string to calculate concordance
+     * Also, construct sentences and corpus objects
+     * @param str
+     */
     public Concordance(String str) {
         sentences = new Sentences(str);
         corpus = new Corpus();
     }
 
+    /**
+     * Main loop to compute concordance.
+     * Call sentence breaker
+     * Tokenize the sentence
+     * Add the words to Corpus
+     */
     private void calcConcordance() {
         int sid = 0;
         while (sentences.hasNext()) {
@@ -35,6 +53,10 @@ public class Concordance {
         return corpus.getCorpus();
     }
 
+    /**
+     * Get the Concordance from Corpus, and generate list of String for it
+     * @return
+     */
     public ArrayList<String> getConcordance() {
         if (sentences.hasNext())
             this.calcConcordance();
@@ -59,15 +81,7 @@ public class Concordance {
             System.out.println(elem);
     }
 
-    public static void printEachForward(BreakIterator boundary, String source) {
-        int start = boundary.first();
-        for (int end = boundary.next();
-             end != BreakIterator.DONE;
-             start = end, end = boundary.next()) {
-            System.out.println(source.substring(start,end));
-        }
-    }
-
+    // Main entry class
     public static void main(String[] args) throws IOException {
         String myStr = StdIn.readString();
         Concordance concordance = new Concordance(myStr);
